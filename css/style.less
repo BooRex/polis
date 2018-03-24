@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa&subset=cyrillic,cyrillic-ext');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=cyrillic,cyrillic-ext');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&subset=cyrillic,cyrillic-ext');
+
+// -- Genaral Colors -- //
+@general-red: 	#F53F44;
+@general-blue: 	#1B7EC1;
+@general-black:	#333333;
+@general-white:	#FFFFFF;
+@general-green: #26C55C;
+// -- Message Colors -- //
+@msg-red:    #F53F44;
+@msg-green:  #26C55C;
+@msg-luxary: linear-gradient(45deg, #2d81ef 0%, #39ad5f 50%, #9bd829 100%);
+
+
+
+* {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    font-family: Comfortaa;
+    color: @general-black;
+}
+
+a {
+    text-decoration: none;
+}
+
+form, .profile__user_email {
+    font-weight: bold;
+    margin: 1em auto 1em auto;
+    width: 40%;
+    text-align: center;
+    border: 1px dashed @general-blue;
+    padding: 1em;
+}
+
+input {
+    text-align: center;
+    font-weight: bold;
+    background-color: white;
+    color: @general-black;
+    border: 1px solid @general-blue;
+    height: 2em;
+    width: 15em;
+}
+
+textarea {
+    padding: 0.5em;
+    width: 25em;
+    height: 15em;
+    border: 1px solid @general-blue;
+}
+
+input[type=submit] {
+    background-color: @general-blue;
+    color: white;
+    font-weight: bold;
+    height: 3.125em;
+    line-height: 1em;
+}
+
+input:focus {
+    outline: 0px;
+}
+
+input[type=submit]:hover {
+    background: lighten(@general-blue, 10%) ;
+}
+/*******|MESSAGES|********/
+.msg {
+    border: 1px solid @general-white;
+    border-radius: 5em;
+    font-weight: bold;
+    color: white;
+    width:  40%;
+    height: 4em;
+    text-align: center;
+    line-height:  4em;
+    position:  fixed;
+    bottom: -3em;
+    transition: 0.5s ease;
+    transform: translate(0,-5em);
+    left: 30%;
+}
+
+
+.error {
+    background: @msg-red;
+}
+.success {
+    background: @msg-green;
+}
+.luxury {
+    background: @msg-luxary;
+}
+
+.msg:hover {
+    cursor: pointer;
+}
+
+/*******|File upload|********/
+
+.file_upload {
+    margin: 0 auto;
+}
+
+.input_under_img {
+    position: absolute;
+    display: block;
+    width: 15em;
+    height: 15em;
+    opacity: 0;
+    cursor: pointer;
+}
+/*******|MAIN|********/
+.main__item {
+    display: block;
+    width: 50%;
+    margin: 1em auto;
+    color: white;
+    background: @general-blue;
+    padding: 1em;
+    font-weight: bold;
+    font-size: 3em;
+    border: 5px dashed @general-white;
+}
+/*******|CONTENT|********/
+.content {
+    padding: 1em;
+    text-align: center;
+    color: @general-blue;
+}
+.content__categories-item {
+    margin: 1em;
+    padding: 0.5em;
+    border: 1px solid @general-blue;
+    //background: lighten(@general-blue,10%);*/
+    display: inline-block;
+    width: 25%;
+}
+
+.content__categories-item img {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-top: 1px solid @general-blue;
+    border-bottom: 1px solid @general-blue;
+}
+
+.content__categories-name {
+    font-weight: bold;
+    color: @general-blue;
+    line-height: 3em;
+}
+
+.content__categories-text {
+    padding: 1em;
+}
+
+.content__products-item {
+    margin: 1em;
+    padding: 0.5em;
+    border: 1px solid @general-red;
+    display: inline-block;
+    width: 25%;
+}
+
+.content__products-item img {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.content__products-nameNprice {
+    font-weight: bold;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    height: 2em;
+    line-height: 2em;
+}
+
+.content__products-name {
+    display: inline-block;
+    font-weight: bold;
+    border: 3px dotted @general-white;
+    background: @general-red;
+    color: @general-white;
+    width: 60%;
+    
+}
+
+.content__products-price {
+    display: inline-block;
+    border: 3px dotted @general-white;
+    background: @general-blue;
+    color: white;
+    width: 30%;
+}
+
+.content__products-btns {
+    font-weight: bold;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    height: 3em;
+    line-height: 3em;
+}
+
+.content__products-btn {
+    display: inline-block;
+    border: 1px solid @general-red;
+    width: 46%;
+    height: 3em;
+    line-height: 3em;
+}
+
+.content__product-image, .content__product-info {
+    display: block;
+    margin: 1em auto 1em auto;
+    width: 30%;
+    border: 1px dashed @general-blue;
+    padding: 1em;
+}
+
+.content__product-brandNname, .content__product-priceNquantity {
+    padding: 1em;
+}
+.content__product-brand {
+    font-weight: bold;
+    color: @general-blue;
+}
+
+.content__product-name {
+    font-weight: bold;
+}
+
+.content__product-price {
+    color: @general-white;
+    font-weight: bold;
+    padding: 0.5em;
+    border: 1px solid @general-blue;
+    background: lighten(@general-blue, 10%);
+}
+
+.content__product-quantity {
+    color: @general-white;
+    font-weight: bold;
+    padding: 0.5em;
+    border: 1px solid @general-red;
+    background: lighten(@general-red, 10%);
+}
+
+.content__product-text {
+    width: 50%;
+    margin: 1em auto 1em auto;
+    border: 1px dashed @general-blue;
+    padding: 1em;
+    text-align: left;
+}
+
+.content__product-btn {
+    display: block;
+    margin: 1em auto 0 auto;
+    padding: 0.5em;
+}
+
+.add_to_cart {
+    background: @general-red;
+    font-weight: bold;
+    color: @general-white;
+}
+
+.added {
+    background: @general-green;
+    border: 1px solid darken(@general-green,15%);
+}
+
+.more {
+    background: @general-white;
+    color: @general-red;
+}
+
+.content__products-item:hover {
+    box-shadow: 0px 0px 30px 0px @general-red;
+    background: darken(@general-white,5%);
+}
+.content__categories-item:hover {
+    background: darken(@general-white,5%);
+}
+/*******|ADMIN|*********/
+.content__admin{
+    padding: 1em;
+}
+.admin__item {
+    margin: 0 auto;
+    color: @general-blue;
+    display: block;
+    width: 20%;
+    font-weight: bold;
+    padding: 1em;
+    border: 1px solid @general-blue;
+}
+
+.admin__item-name {
+    margin:  0.25em;
+    color: @general-blue;
+    display: inline-block;
+    width: 20%;
+    font-weight: bold;
+    padding: 1em;
+    border: 1px solid @general-blue;
+}
+
+.admin__item-del {
+    margin: 0.25em;
+    display: inline-block;
+    width: 20%;
+    font-weight: bold;
+    padding: 1em;
+    border: 1px solid @general-red;
+    color: @general-red;
+}
+.admin__item-add {
+    margin: 1em auto;
+    display: block;
+    width: 30%;
+    font-weight: bold;
+    padding: 1em;
+    background: @general-green;
+    border: 1px solid darken(@general-green,15%);
+    color: @general-white;
+}
+
+
+/*******|FOOTER|********/
+.footer {
+    font-weight: bold;
+    width: 100%;
+    background: @general-red;
+    height: 5em;
+}
+
+.footer__copyright {
+    color: white;
+    text-align: center;
+    line-height: 5em;
+}
+/*******|MENU|********/
+.menu {
+    font-weight: bold;
+    width: 100%;
+    background: @general-red;
+    height: 5em;
+}
+
+.menu__links {
+    text-align: left;
+}
+
+.menu__links-item {
+    float: left;
+    display: inline-block;  
+    transition: 0.25s;
+    line-height: 5em;
+    color: @general-white;
+    padding: 0 2em;
+}
+
+.menu__auth {
+    float: right;
+}
+
+.menu__user_image {
+    border-left: 0.0675em solid white;
+    border-right: 0.0675em solid white;
+}
+
+.menu__link_exit {
+    float: right;
+}
+
+.menu__links-item:hover{
+    color: @general-red;
+    box-shadow: inset 0em -5em 0em 0em @general-white;
+}
+/*******|Buttons|*******/
+.btn_chng_user_image {
+    font-size: 16px;
+    width: 15em;
+    height: 15em;
+    background: @general-white;
+    color: @general-black;
+    border: 1px solid @general-blue;
+}
+
+.btn_back {
+    line-height: 3em;
+    text-align: center;
+    border: 1px solid @general-blue;
+    display: inline-block;
+    font-weight: bold;
+    background: white;
+    color: @general-blue;
+    height: 3em;
+    width: 15em;
+}
+
+.btn_back:hover {
+    color: lighten(@general-blue, 10%);
+}
+
+.profile__user_image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    float: left;
+}
+
+.profile__user_login {
+    display: block;
+    width: 40%;
+    padding: 0.5em;
+    border: 1px dashed @general-blue;
+    font-size: 2em;
+    margin: 0.5em auto;
+    text-align: center;
+    font-weight: bold;
+}
+
+.profile__admin_panel {
+    display: block;
+    width: 40%;
+    border: 1px dashed @general-blue;
+    margin: 0.5em auto;
+    text-align: center;
+    font-weight: bold;
+    padding: 1em;
+    color: white;
+}
+
+.profile__user_email {
+    border: 1px dashed @general-blue;
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+    text-align: center; 
+}
+
+/*********|ERROR 404 PAGE|***********/
+.error__window {
+    padding: 2em;
+    margin: 1em auto 1em auto;
+    background: white;
+    width: 70%;
+    border: 1px dashed @general-blue;
+}
+.error__msg {
+    font-size: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+.error__type {
+    font-size: 1em;
+    padding-top: 1em;
+    font-size: 5em;
+}
+.error__btn_back {
+    margin-bottom: 1em;
+}
+
+/*********|SPECIAL|***********/
+.al-center {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
