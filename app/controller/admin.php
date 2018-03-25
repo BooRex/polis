@@ -18,20 +18,22 @@ class Admin
         $this->arr_categories = $this->adminModel->getCategories_info();
         $this->arr_brands = $this->adminModel->getBrands_info();
         
+        // -- Check is Admin
         if ($_SESSION['authorized'] == 'admin')
         {
-            switch ($_POST['edit_id'])
+            // --
+            switch ($_POST['page_id'])
             {
                 case 1:
-                    if ($_POST['type'] == 0) {$this->showCategory_editPage();}
+                    if ($_POST['type'] == 'edit') {$this->showCategories_editPage();}
                     else {$this->showCategory_addPage();}
                     break;
                 case 2:
-                    if ($_POST['type'] == 0) {$this->showProduct_editPage();}
+                    if ($_POST['type'] == 'edit') {$this->showProducts_editPage();}
                     else {$this->showProduct_addPage();}
                     break;
                 case 3:
-                    if ($_POST['type'] == 0) {$this->showUser_editPage();}
+                    if ($_POST['type'] == 'edit') {$this->showUsers_editPage();}
                     else {$this->showUser_addPage();}
                     break;
             } 
@@ -42,7 +44,7 @@ class Admin
         }
     }
     
-    public function showCategory_editPage()
+    public function showCategories_editPage()
     {
         $this->template = DIR_VIEW_ADMIN."re_category";
         
@@ -97,7 +99,7 @@ class Admin
         }
     }
     
-    public function showProduct_editPage()
+    public function showProducts_editPage()
     {
         $this->template = DIR_VIEW_ADMIN."re_product";
         

@@ -30,19 +30,16 @@
                             <a class='menu__links-item' href='/tour/my'>Мои заказы</a>
                             ";
                             break;
-                        /*case "manager":
+                        case "manager":
                             echo
                             "
-                            <a class='menu__links-item' href='/orders'>Заказы</a>
-                            <a class='menu__links-item' href='/admin/tour_change'>Изменить тур</a>
+                            <a class='menu__links-item' href='/admin'>Администрирование</a>
                             ";
-                            break;*/
+                            break;
                         case "admin":
                             echo
                             "
-                            <a class='menu__links-item' href='/admin/re_category'>Категории</a>
-                            <a class='menu__links-item' href='/admin/re_product'>Продукты</a>
-                            <a class='menu__links-item' href='/admin/re_user'>Пользователи</a>
+                            <a class='menu__links-item' href='/admin'>Администрирование</a>
                             ";
                             break;
                     }

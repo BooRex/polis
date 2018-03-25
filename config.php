@@ -19,6 +19,7 @@
     // -- Sub DIR's
     define('DIR_ERR', DIR_CTRL . 'errors/');
     define('DIR_USER_IMG', DIR_IMG . 'user_images/');
+    define('DIR_ADMIN_IMG', DIR_IMG . 'admin/');
     define('DIR_PRODUCT_IMG', DIR_IMG . 'product_images/');
     define('DIR_CATEGORY_IMG', DIR_IMG . 'category_images/');
     define('DIR_MAIN_IMG', DIR_IMG . 'main/');
@@ -30,7 +31,8 @@
     // Размер картинок
     define('IMAGE_RESOLUTION_MENU', '80px');
     define('IMAGE_RESOLUTION_CONTENT', '160px');
-    define('IMAGE_RESOLUTION_PROD_PAGE', '200px');    
+    define('IMAGE_RESOLUTION_PROD_PAGE', '200px');   
+    define('IMG_RESOLUTION_ADMIN_BTN', '20px');
     
 
     // Размер файлов для загрузки

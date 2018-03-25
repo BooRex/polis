@@ -287,42 +287,66 @@ input[type=submit]:hover {
     background: darken(@general-white,5%);
 }
 /*******|ADMIN|*********/
-.content__admin{
-    padding: 1em;
-}
-.admin__item {
-    margin: 0 auto;
-    color: @general-blue;
+.admin__main.edit-pages {
     display: block;
-    width: 20%;
-    font-weight: bold;
+    margin: 0 auto;
     padding: 1em;
-    border: 1px solid @general-blue;
+    border: 1px dashed @general-blue;
+    width: 60%;
 }
-
-.admin__item-name {
-    margin:  0.25em;
+.admin__main.ep.title {
+    padding-bottom: 1em;
+    border-bottom: 1px dashed @general-blue;
     color: @general-blue;
-    display: inline-block;
-    width: 20%;
     font-weight: bold;
+}
+.admin__main.ep.items {
+    display: block;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.admin__main.ep.item {
+    display: inline-block;
+    width: 28%;
+    padding: 1em;
+    background: @general-blue;
+    color: @general-white;
+    font-weight: bold;
+}
+
+.admin__items.table {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+}
+.admin__items.table th {
     padding: 1em;
     border: 1px solid @general-blue;
 }
-
-.admin__item-del {
-    margin: 0.25em;
-    display: inline-block;
-    width: 20%;
-    font-weight: bold;
-    padding: 1em;
-    border: 1px solid @general-red;
-    color: @general-red;
+.admin__items.td-name {
+    border: 1px solid @general-blue;
 }
-.admin__item-add {
+
+.admin__item.name {
+    padding: 1em;
+    display: block;
+    text-align: left;
+}
+.admin__item.edit {
+    display: block;
+    background: @general-blue;
+}
+.admin__item.delete {
+    display: block;
+    background: @general-red;
+}
+.admin__item.edit img, .admin__item.delete img{
+    padding: 1em;
+}
+.admin__item.add {
     margin: 1em auto;
     display: block;
-    width: 30%;
+    width: 25%;
     font-weight: bold;
     padding: 1em;
     background: @general-green;
@@ -330,7 +354,18 @@ input[type=submit]:hover {
     color: @general-white;
 }
 
-
+.admin__main.item:hover {
+    background: darken(@general-blue,5%);
+}
+.admin__item.edit:hover {
+    background: darken(@general-blue,5%);
+}
+.admin__item.delete:hover {
+    background: darken(@general-red,5%);
+}
+.admin__item.add:hover {
+    background: darken(@general-green,5%);
+}
 /*******|FOOTER|********/
 .footer {
     font-weight: bold;
