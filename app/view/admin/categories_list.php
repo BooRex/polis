@@ -1,11 +1,10 @@
-<table cellspacing='5px' class="admin__items table">
+<table class="admin__items table">
     <thead>
         <tr>
-            <th width="100%">Название</th>
-            <th colspan="2">Действия</th>
+            <th>Название</th>         
         </tr>
     </thead>
-    
+       
     <?php
     
     // -- Table filling
@@ -16,7 +15,7 @@
                 echo "<p class='admin__item name'>" . $item['category_name'] . "</p>";
              echo "</td>";
             echo "<td>";
-                echo "<a class='admin__item edit' href='?edit=" . $item['category_id'] . "'><img width='".IMG_RESOLUTION_ADMIN_BTN."' height='".IMG_RESOLUTION_ADMIN_BTN."' src='".DIR_ADMIN_IMG."edit_pencil.png"."'></a> ";
+                echo "<a class='admin__item edit' href='?edit=" . $item['category_id'] . "'> <img width='".IMG_RESOLUTION_ADMIN_BTN."' height='".IMG_RESOLUTION_ADMIN_BTN."' src='".DIR_ADMIN_IMG."edit_pencil.png"."'></a> ";
             echo "</td>";
             echo "<td>";
                 echo "<a class='admin__item delete' href='?del=" . $item['category_id'] . "'><img width='".IMG_RESOLUTION_ADMIN_BTN."' height='".IMG_RESOLUTION_ADMIN_BTN."' src='".DIR_ADMIN_IMG."delete_cross.png"."'></a>";
@@ -26,4 +25,4 @@
     ?>
     
 </table>
-<a class="admin__item add" href="add_category">Добавить новую категорию</a>
+<a class="admin__item add" href="category_add">Добавить новую категорию</a>

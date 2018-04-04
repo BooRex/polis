@@ -25,15 +25,15 @@ class Admin
             switch ($_POST['page_id'])
             {
                 case 1:
-                    if ($_POST['type'] == 'edit') {$this->showCategories_editPage();}
+                    if ($_POST['type'] == 'edit') {$this->showCategory_editPage();}
                     else {$this->showCategory_addPage();}
                     break;
                 case 2:
-                    if ($_POST['type'] == 'edit') {$this->showProducts_editPage();}
+                    if ($_POST['type'] == 'edit') {$this->showProduct_editPage();}
                     else {$this->showProduct_addPage();}
                     break;
                 case 3:
-                    if ($_POST['type'] == 'edit') {$this->showUsers_editPage();}
+                    if ($_POST['type'] == 'edit') {$this->showUser_editPage();}
                     else {$this->showUser_addPage();}
                     break;
             } 
@@ -44,15 +44,15 @@ class Admin
         }
     }
     
-    public function showCategories_editPage()
+    public function showCategory_editPage()
     {
-        $this->template = DIR_VIEW_ADMIN."re_category";
+        $this->template = DIR_VIEW_ADMIN."categories_list";
         
         $this->categories_info = $this->adminModel->getCategories_info();
                
         if (isset($_GET['del']) && !empty($_GET['del']))
         {
-            $this->adminModel->deleteCategory($_GET['del']);
+            $this->msg = $this->adminModel->deleteCategory($_GET['del']);
         }
         if (isset($_GET['edit']) && !empty($_GET['edit']))
         {
@@ -99,9 +99,9 @@ class Admin
         }
     }
     
-    public function showProducts_editPage()
+    public function showProduct_editPage()
     {
-        $this->template = DIR_VIEW_ADMIN."re_product";
+        $this->template = DIR_VIEW_ADMIN."products_list";
         
         $this->products_info = $this->adminModel->getProducts_info();
                
@@ -157,15 +157,59 @@ class Admin
         }
     }
     
-    /*
+    
     public function showUser_editPage()
     {
+        $this->template = DIR_VIEW_ADMIN."users_list";
         
+        $this->users_info = $this->adminModel->getUsers_info();
+               
+        if (isset($_GET['del']) && !empty($_GET['del']))
+        {
+            $this->adminModel->deleteUser($_GET['del']);
+        }
+        if (isset($_GET['edit']) && !empty($_GET['edit']))
+        {
+            $this->template = DIR_VIEW_ADMIN."user_edit";
+            $this->user_id = $_GET['edit'];
+            
+            $this->user_info = $this->adminModel->getUser_info($this->user_id);
+            
+            if (isset($_POST['isEditing']))
+            {
+                $path = "img\\user_images\\";
+                $id = $this->user_id;
+                $product_image = $this->uploadImage($path, $id);
+                
+                if (!empty($user_image))
+                {
+                    $_POST['$user_image'] = $user_image;
+                }
+    
+                $this->adminModel->updateUser($_POST);
+            }
+        } 
     }
     public function showUser_addPage()
     {
-        
-    }*/
+        $this->template = DIR_VIEW_ADMIN."user_add";
+
+        if (isset($_POST['isAdding']))
+        {
+            $path = "img\\user_images\\";
+            $id = time();
+            $user_image = $this->uploadImage($path, $id);
+            
+            
+            if (!empty($user_image))
+            {
+                $_POST['user_image'] = $user_image;
+            }
+            
+            $inserted_id = $this->adminModel->insertUser($_POST);
+
+        }
+    }
     
     public function uploadImage($_path, $_id)
     {
@@ -216,5 +260,8 @@ $category = $obj_Admin->category_info;
 
 $products_info = $obj_Admin->products_info;
 $product = $obj_Admin->product_info;
+
+$users_info = $obj_Admin->users_info;
+$user = $obj_Admin->user_info;
 
 $msg = $obj_Admin->msg;

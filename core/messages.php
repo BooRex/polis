@@ -9,14 +9,20 @@
 			break;
 		case "succ_reg":
 			//header("Refresh: 3; URL=index.php");
-			echo "<p class='msg success'>Вы успешно зарегестрированы!</p>";
+			echo "<p class='msg success'>Вы успешно зарегестрированы</p>";
 			break;
 		case "succ_pass_change":
-			echo "<p class='msg success'>Вы успешно поменяли пароль.</p>";
+			echo "<p class='msg success'>Вы успешно поменяли пароль</p>";
 			break;
 		case "succ_image_upl":
 			//header("Refresh: 1; URL=profile.php");
-			echo "<p class='msg success'>Вы успешно загрузили изображение.</p>";
+			echo "<p class='msg success'>Вы успешно загрузили изображение</p>";
+			break;
+                case "succ_del_category":
+			echo "<p class='msg success'>Вы успешно удалили категорию</p>";
+			break;
+                case "succ_del_product":
+			echo "<p class='msg success'>Вы успешно удалили продукт</p>";
 			break;
 
 		case "err_empty_fields":
@@ -54,6 +60,13 @@
 			break;
 		case "err_not_image":
 			echo "<p class='msg error'>Ошибка, файл не является изображением!</p>";
+			break;
+                case "err_del_category":
+                        header( "refresh:3;url=#" );
+			echo "<p class='msg error'>Ошибка удаления категории!</p>";
+			break;
+                case "err_del_product":
+			echo "<p class='msg error'>Ошибка удаления продукта!</p>";
 			break;
 
 		case "is_admin":

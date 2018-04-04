@@ -30,7 +30,7 @@ class Categories
             $_SESSION['cart'] = $cart;
             echo "Продукт с id - $id<br>";
         }
-        // -- if CERTAIN category then show this category PRODUCTS
+        // -- if category DEFINED -> show this category PRODUCTS
         if (isset($_POST['category_id']))
         {
             $this->category_id = $_POST['category_id'];

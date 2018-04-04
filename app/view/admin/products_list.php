@@ -1,8 +1,7 @@
-<table cellspacing='5px' class="admin__items table">
+<table class="admin__items table">
     <thead>
         <tr>
-            <th width="100%">Название</th>
-            <th colspan="2">Действия</th>
+            <th>Название</th>         
         </tr>
     </thead>
     
@@ -26,4 +25,4 @@
     ?>
     
 </table>
-<a class="admin__item add" href="add_category">Добавить новый продукт</a>
+<a class="admin__item add" href="product_add">Добавить новый продукт</a>

@@ -86,10 +86,10 @@ input[type=submit]:hover {
 }
 
 
-.error {
+.msg.error {
     background: @msg-red;
 }
-.success {
+.msg.success {
     background: @msg-green;
 }
 .luxury {
@@ -317,12 +317,22 @@ input[type=submit]:hover {
 .admin__items.table {
     display: block;
     margin: 0 auto;
-    width: 70%;
-}
-.admin__items.table th {
     padding: 1em;
+    border-collapse: collapse;
+}
+
+.admin__items.table th {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background: @general-blue;
+    color: @general-white;
     border: 1px solid @general-blue;
 }
+.admin__items td {
+    width: 100%;
+    border: 1px dashed @general-white;
+}
+
 .admin__items.td-name {
     border: 1px solid @general-blue;
 }
@@ -334,6 +344,7 @@ input[type=submit]:hover {
 }
 .admin__item.edit {
     display: block;
+    margin-left: 0.5em;
     background: @general-blue;
 }
 .admin__item.delete {
@@ -341,6 +352,7 @@ input[type=submit]:hover {
     background: @general-red;
 }
 .admin__item.edit img, .admin__item.delete img{
+    display: block;
     padding: 1em;
 }
 .admin__item.add {
@@ -350,12 +362,15 @@ input[type=submit]:hover {
     font-weight: bold;
     padding: 1em;
     background: @general-green;
-    border: 1px solid darken(@general-green,15%);
     color: @general-white;
 }
 
+
 .admin__main.item:hover {
     background: darken(@general-blue,5%);
+}
+.admin__item.name:hover {
+    background: darken(@general-white,2.5%);
 }
 .admin__item.edit:hover {
     background: darken(@general-blue,5%);

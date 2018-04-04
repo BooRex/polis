@@ -1,12 +1,12 @@
 <?php
     namespace App\Libs;
 
-    class Route extends Database
+    class Router extends Database
     {
         // -- Method that get [CONTROLLER_NAME] from URL string($route)
-        public function get_controller($route) 
+        public function getController($route) 
         {
-            $path = $this->get_path($route);
+            $path = $this->getPath($route);
             // -- If returned 404 then show ERROR404 page
             if($path !== 404)
             {
@@ -43,23 +43,25 @@
             return $controller;
         }
         // -- Method that check URL to find CONTROLLER and prevent from CONTROLLER repetition
-        public function get_path($route) 
+        public function getPath($route) 
         {
             $url = '';
             $controllers_count = 0;
 
             $route_array = explode('/', $route);
+           
             foreach ($route_array as $r_a) 
             {
                 $isset_controller = $this->DB_GetOneLine("SELECT url FROM url_alias WHERE alias = '$r_a'");
+                
                 if($isset_controller)
                 {
-                    foreach ($isset_controller as $url_shard) 
+                    foreach ($isset_controller as $url_part) 
                     {
                         // -- Assembling the url-string
-                        $url .= '/'.$url_shard;
+                        $url .= '/'.$url_part;
                         // -- Check number of controllers in a string
-                        if (strstr($url_shard, "controller")) 
+                        if (strstr($url_part, "controller")) 
                         {
                             $controllers_count++;
                         }
@@ -80,18 +82,19 @@
             return substr($url, 1);
         }
         // -- Method that assemble site through TEMPLATE
-        public function assembler($controller) 
+        public function goAssemble($controller) 
         {
             // -- Default template initialization
             $template = $controller;
             //$selector - для определения AJAX запроса что бы можно было вернуть только результат...
             $selector = 0;  
-            if(isset($_REQUEST['method']) && $_REQUEST['method']=='ajax'){
+            if(isset($_REQUEST['method']) && $_REQUEST['method']=='ajax')
+            {
                 $selector = 1;
             }
             //подключим нужные контроллеры
-            if(!$selector){ include DIR_CTRL.'header.php'; }
-            include DIR_CTRL.$controller.'.php'; // Controller returns TEMPLATE    
+            if(!$selector){ include DIR_CTRL . 'header.php'; }
+            include DIR_CTRL . $controller.'.php'; // Controller returns TEMPLATE    
             if(!$selector){ include DIR_CTRL.'footer.php'; }
             //echo "<pre>"; echo print_r($_SESSION); echo "</pre>";
             if(!$selector){ include DIR_VIEW.'header.php'; }
@@ -101,7 +104,7 @@
             }
             else
             {
-                if(!$selector){ include "/app/view/".$template.'.php'; }
+                if(!$selector){ include "app/view/".$template.'.php'; }
             }
             if(!$selector){ include DIR_VIEW.'footer.php'; }
         }

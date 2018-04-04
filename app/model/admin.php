@@ -6,6 +6,7 @@ use App\Libs\Database as Database;
 
 class Admin extends Database
 { 
+    // -- GENERAL 
     public function getCategories_info()
     {
         $query = "SELECT category_id, category_name FROM categories";
@@ -42,6 +43,7 @@ class Admin extends Database
         return $this->DB_Insert($query);
     }
 
+    // -- CATEGORY
     public function getCategory_info($category_id)
     {
         $query = "SELECT * FROM categories WHERE category_id = $category_id";
@@ -100,9 +102,22 @@ class Admin extends Database
     }
     public function deleteCategory($category_id)
     {
-        $query = "DELETE FROM categories WHERE category_id = $category_id";
+        $query_del_category = "DELETE FROM categories WHERE category_id = $category_id";
+        $query_del_ptc = "DELETE FROM product_to_category WHERE category_id = $category_id";
+        $query_del_alias = "DELETE FROM url_alias WHERE url = 'category_id=$category_id'";
         
-        return $this->DB_Delete($query);
+        $res_del_category = $this->DB_Delete($query_del_category);
+        $res_del_ptc = $this->DB_Delete($query_del_ptc);
+        $res_del_alias = $this->DB_Delete($query_del_alias);
+        
+        if ($res_del_category && $res_del_ptc && $res_del_alias)
+        {
+            return "succ_del_category";
+        }
+        else
+        {
+            return "err_del_category";
+        }
     }
     // -- PRODUCT
     public function getProducts_info()
@@ -181,9 +196,92 @@ class Admin extends Database
     }
     public function deleteProduct($product_id)
     {
-        $query = "DELETE FROM products WHERE product_id = $product_id";
+        $query_del_product = "DELETE FROM products WHERE product_id = $product_id";
+        $query_del_ptc = "DELETE FROM product_to_category WHERE product_id = $product_id";
+        $query_del_alias = "DELETE FROM url_alias WHERE url = 'product_id=$product_id'";
         
-        return $this->DB_Delete($query);
+        $res_del_product = $this->DB_Delete($query_del_product);
+        $res_del_ptc = $this->DB_Delete($query_del_ptc);
+        $res_del_alias = $this->DB_Delete($query_del_alias);
+        
+        if ($res_del_product && $res_del_ptc && $res_del_alias)
+        {
+            return "succ_del_product";
+        }
+        else
+        {
+            return "err_del_product";
+        }
+    }
+    // -- USER
+    public function getUsers_info()
+    {
+        $query = "SELECT user_id, user_first_name, user_last_name FROM user";
+  
+        return $this->DB_GetSomeLines($query);
+    }
+    public function getUser_info($user_id)
+    {
+        $query = "SELECT * FROM user WHERE user_id = $user_id";
+        
+        return $this->DB_GetOneLine($query);
+    }
+    public function updateUser($user)
+    {
+        $id = $user['user_id'];
+        $email = $user['user_email'];
+        $image = $user['user_image'];
+        $first_name = $user['user_first_name'];
+        $last_name = $user['user_last_name'];
+        $status = $user['status'];
+        
+        $query = "UPDATE user "
+                . "SET "
+                . "user_email = '".$email."', "
+                . "user_image = '".$image."', "
+                . "user_first_name = '".$first_name."', "
+                . "user_last_name = '".$last_name."', "
+                . "`status` = $status "
+                . "WHERE user_id = $id";
+        
+        return $this->DB_Update($query);
+    }
+    public function insertUser($user)
+    {
+        $email = $user['user_email'];
+        $image = $user['user_image'];
+        $first_name = $user['user_first_name'];
+        $last_name = $user['user_last_name'];
+        $password = md5($user['user_password']);
+        $status = $user['status'];
+        
+        $query = "INSERT INTO user "
+                . "SET "
+                . "user_email = '".$email."', "
+                . "user_image = '".$image."', "
+                . "user_first_name = '".$first_name."', "
+                . "user_last_name = '".$last_name."', "
+                . "user_password = '".$password."', "
+                . "user_reg_date = NOW(), "
+                . "user_lastseen_date = NOW(), "
+                . "`status` = $status ";
+        
+        return $this->DB_Insert($query);
+    }
+    public function deleteUser($user_id)
+    {
+        $query_del_user = "DELETE FROM user WHERE user_id = $user_id";
+        
+        $res_del_user = $this->DB_Delete($query_del_user);
+        
+        if ($res_del_user)
+        {
+            return "succ_del_user";
+        }
+        else
+        {
+            return "err_del_user";
+        }
     }
     
 }

@@ -8,11 +8,11 @@
     define('HTTP_SERVER', 'http://polis');
     
     // -- DIR's
-    define('DIR_ROOT', __DIR__ . '/');
-    define('DIR_CORE', '/core/');
-    define('DIR_VIEW', '/app/view/default/');
-    define('DIR_CTRL', '/app/controller/');
-    define('DIR_MODEL', '/app/model/');
+    define('DIR_ROOT', '/');
+    define('DIR_CORE', __DIR__.'/core/');
+    define('DIR_VIEW', __DIR__.'/app/view/default/');
+    define('DIR_CTRL', __DIR__.'/app/controller/');
+    define('DIR_MODEL', __DIR__.'/app/model/');
     define('DIR_JS', '/js/');
     define('DIR_IMG', '/img/');
     define('DIR_CSS', '/css/');
